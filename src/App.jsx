@@ -27,7 +27,7 @@ function App() {
       >
         Contained
       </Button>
-      <Button startIcon={<AddIcon />} variant="outlined">
+      <Button color="otherColor" startIcon={<AddIcon />} variant="outlined">
         Outlined
       </Button>
       <BlueButton>My Unique Button</BlueButton>
