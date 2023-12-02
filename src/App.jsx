@@ -17,6 +17,24 @@ function App() {
       <Button startIcon={<AddIcon />} variant="outlined">
         Outlined
       </Button>
+      <Button
+        variant="contained"
+        sx={{
+          backgroundColor: "skyblue",
+          color: "#000",
+          margin: 5,
+          "&hover": {
+            backgroundColor: "lightblue",
+          },
+          // when disabled it will work
+          "&:disabled": {
+            backgroundColor: "gray",
+            color: "white",
+          },
+        }}
+      >
+        My Unique Button
+      </Button>
     </>
   );
 }
