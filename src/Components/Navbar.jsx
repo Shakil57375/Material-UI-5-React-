@@ -23,9 +23,21 @@ const Search = styled("div")(({ theme }) => ({
 }));
 
 const Icons = styled(Box)(({ theme }) => ({
+  display: "none",
+  gap: "20px",
+  alignItems: "center",
+  [theme.breakpoints.up("sm")]:{
+    display : "flex"
+  }
+}));
+
+const UserBox = styled(Box)(({ theme }) => ({
   display: "flex",
   gap: "20px",
   alignItems: "center",
+  [theme.breakpoints.up("sm")]:{
+    display : "none"
+  }
 }));
 const Navbar = () => {
   return (
@@ -52,6 +64,13 @@ const Navbar = () => {
             src="https://i.ibb.co/HDQqVGz/65041c4e6f21544db8a4dfc2-Let-s-Venture.webp"
           />
         </Icons>
+        <UserBox>
+          <Avatar
+            alt="Remy Sharp"
+            src="https://i.ibb.co/HDQqVGz/65041c4e6f21544db8a4dfc2-Let-s-Venture.webp"
+          />
+          <Typography variant="span">Remy</Typography>
+        </UserBox>
       </StyledToolbar>
     </AppBar>
   );
