@@ -1,38 +1,20 @@
-import { Button, styled } from "@mui/material";
-import "./App.css";
-import SettingsIcon from "@mui/icons-material/Settings";
-import AddIcon from "@mui/icons-material/Add";
-function App() {
-  const BlueButton = styled(Button)({
-    backgroundColor: "skyblue",
-    color: "#000",
-    margin: 5,
-    "&hover": {
-      backgroundColor: "lightblue",
-    },
-    // when disabled it will work
-    "&:disabled": {
-      backgroundColor: "gray",
-      color: "white",
-    },
-  });
+import { Box, Stack } from "@mui/material";
+import Feed from "./Components/Feed";
+import Rightbar from "./Components/Rightbar";
+import Sidebar from "./Components/Sidebar";
+import Navbar from "./Components/Navbar";
+
+const App = () => {
   return (
-    <>
-      <Button variant="text">Text</Button>
-      <Button
-        startIcon={<SettingsIcon />}
-        variant="contained"
-        color="secondary"
-        size="small"
-      >
-        Contained
-      </Button>
-      <Button color="otherColor" startIcon={<AddIcon />} variant="outlined">
-        Outlined
-      </Button>
-      <BlueButton>My Unique Button</BlueButton>
-    </>
+    <Box>
+      {/* <Navbar/> */}
+      <Stack direction="row" spacing={2} justifyContent="space-between">
+        <Sidebar />
+        <Feed />
+        <Rightbar />
+      </Stack>
+    </Box>
   );
-}
+};
 
 export default App;
