@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import {
   AppBar,
+  Avatar,
+  Badge,
   Box,
   InputBase,
   styled,
@@ -8,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
+import { Mail, Notifications } from "@mui/icons-material";
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
@@ -20,7 +23,9 @@ const Search = styled("div")(({ theme }) => ({
 }));
 
 const Icons = styled(Box)(({ theme }) => ({
-  backgroundColor: "white",
+  display: "flex",
+  gap: "20px",
+  alignItems: "center",
 }));
 const Navbar = () => {
   return (
@@ -35,7 +40,18 @@ const Navbar = () => {
         <Search>
           <InputBase placeholder="search"></InputBase>
         </Search>
-        <Icons>icons</Icons>
+        <Icons>
+          <Badge badgeContent={4} color="error">
+            <Mail />
+          </Badge>
+          <Badge badgeContent={4} color="error">
+            <Notifications />
+          </Badge>
+          <Avatar
+            alt="Remy Sharp"
+            src="https://i.ibb.co/HDQqVGz/65041c4e6f21544db8a4dfc2-Let-s-Venture.webp"
+          />
+        </Icons>
       </StyledToolbar>
     </AppBar>
   );
