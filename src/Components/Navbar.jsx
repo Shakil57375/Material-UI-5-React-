@@ -5,12 +5,15 @@ import {
   Badge,
   Box,
   InputBase,
+  Menu,
+  MenuItem,
   styled,
   Toolbar,
   Typography,
 } from "@mui/material";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import { Mail, Notifications } from "@mui/icons-material";
+import { useState } from "react";
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
@@ -26,20 +29,21 @@ const Icons = styled(Box)(({ theme }) => ({
   display: "none",
   gap: "20px",
   alignItems: "center",
-  [theme.breakpoints.up("sm")]:{
-    display : "flex"
-  }
+  [theme.breakpoints.up("sm")]: {
+    display: "flex",
+  },
 }));
 
 const UserBox = styled(Box)(({ theme }) => ({
   display: "flex",
   gap: "20px",
   alignItems: "center",
-  [theme.breakpoints.up("sm")]:{
-    display : "none"
-  }
+  [theme.breakpoints.up("sm")]: {
+    display: "none",
+  },
 }));
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   return (
     <AppBar position="sticky" marginBottom={10}>
       <StyledToolbar>
@@ -62,9 +66,10 @@ const Navbar = () => {
           <Avatar
             alt="Remy Sharp"
             src="https://i.ibb.co/HDQqVGz/65041c4e6f21544db8a4dfc2-Let-s-Venture.webp"
+            onClick={(e) => setOpen(true)}
           />
         </Icons>
-        <UserBox>
+        <UserBox onClick={(e) => setOpen(true)}>
           <Avatar
             alt="Remy Sharp"
             src="https://i.ibb.co/HDQqVGz/65041c4e6f21544db8a4dfc2-Let-s-Venture.webp"
@@ -72,6 +77,26 @@ const Navbar = () => {
           <Typography variant="span">Remy</Typography>
         </UserBox>
       </StyledToolbar>
+      <Menu
+        id="fade-menu"
+        MenuListProps={{
+          "aria-labelledby": "fade-button",
+        }}
+        open={open}
+        onClose={(e) => setOpen(false)}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+      >
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>My account</MenuItem>
+        <MenuItem>Logout</MenuItem>
+      </Menu>
     </AppBar>
   );
 };
